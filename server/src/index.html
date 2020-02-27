@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>server</title>
+    <script type="text/javascript" src="./util//jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <h1>hello server</h1>
+
+    <button onclick="login()">登录</button>
+
+    <script type="text/javascript">
+        console.log('this is server');
+        const returnUrl = window.location.search.split('service=')[1];
+        
+        function login() {
+            $.ajax({
+                url: '/login',
+                success(data) {
+                    if (data.code === 200) {
+                        window.location.href = `http://${returnUrl}?ticket=${data.data.ticket}`
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
