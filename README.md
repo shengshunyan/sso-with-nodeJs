@@ -13,7 +13,7 @@ npm run client
 ## 二、登录流程 
 1. 应用平台前端XHR请求头部带上特殊字段(如IS-XHR)，区别其他静态资源的请求，进入页面之后，发起一个接口请求 www.app.com/api
 2. 应用平台后端服务在检测请求没登录的情况下，如果是XHR请求(有IS-XHR header字段)，则返回http code是200，response.body：
-```json
+```javascript
 {
     statusCode: 302,
     data: 'http://www.sso.com?service=www.app.com/api'
