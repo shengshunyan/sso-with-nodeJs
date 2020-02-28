@@ -25,7 +25,7 @@ if (res.statusCode === 302) {
     window.location.href = res.data
 }
 ```
-如果是静态资源请求，这正常重定向返回http code是302，设置response Location头部字段为 http://www.sso.com?service=www.app.com/api
+如果是静态资源请求，这正常重定向返回http code是302，设置response Location头部字段为 http://www.sso.com?service=www.app.com/api  
 3. 跳到单点登录服务页面之后，用户输完信息，点击登录，登录完成之后后端返回登录凭证ticket，用静态资源请求的方式请求之前应用平台的接口路径+ticket
 ```
 www.app.com/api?ticket=screte-aa-bb
